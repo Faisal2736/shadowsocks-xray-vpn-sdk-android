@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">VPN SDK Demo</string>
+    <string name="demo_subtitle">Reference client for the Shadowsocks/Xray VPN SDK</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="connecting">Connecting…</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="vpn_permission_required">VPN permission is required to connect</string>
+    <string name="server_configuration">Server configuration</string>
+    <string name="example_config_notice">Pre-filled with a placeholder example server. Replace with your own Shadowsocks/Xray server to establish a real connection.</string>
+    <string name="hint_address">Server address</string>
+    <string name="hint_port">Port</string>
+    <string name="hint_method">Cipher method</string>
+    <string name="hint_password">Password</string>
+</resources>

@@ -1,0 +1,16 @@
+# Build files
+/build/
+/app/build/
+
+# Local configuration
+local.properties
+
+# IDE files
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# Generated files
+captures/
