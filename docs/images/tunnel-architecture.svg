@@ -1,0 +1,64 @@
+<svg viewBox="0 0 1000 460" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5b6472"/>
+    </marker>
+  </defs>
+
+  <rect width="1000" height="460" fill="#ffffff"/>
+
+  <!-- Device boundary -->
+  <rect x="20" y="40" width="560" height="300" rx="14" fill="#f4f6fa" stroke="#c7d0dd" stroke-width="1.5" stroke-dasharray="6,5"/>
+  <text x="40" y="70" font-size="15" font-weight="600" fill="#3b4454">Android device (this repo's vpn-sdk)</text>
+
+  <!-- Network boundary -->
+  <rect x="620" y="40" width="360" height="300" rx="14" fill="#f4f6fa" stroke="#c7d0dd" stroke-width="1.5" stroke-dasharray="6,5"/>
+  <text x="640" y="70" font-size="15" font-weight="600" fill="#3b4454">Network</text>
+
+  <!-- App traffic -->
+  <rect x="50" y="110" width="150" height="70" rx="10" fill="#2f6fed"/>
+  <text x="125" y="140" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="600">App traffic</text>
+  <text x="125" y="160" font-size="12" fill="#dbe6ff" text-anchor="middle">(any app on device)</text>
+
+  <!-- TUN interface -->
+  <rect x="240" y="110" width="150" height="70" rx="10" fill="#1f2a44"/>
+  <text x="315" y="138" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="600">TUN interface</text>
+  <text x="315" y="156" font-size="12" fill="#b9c2d6" text-anchor="middle">VpnService.Builder</text>
+
+  <!-- tun2socks -->
+  <rect x="430" y="110" width="130" height="70" rx="10" fill="#1f2a44"/>
+  <text x="495" y="138" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="600">tun2socks</text>
+  <text x="495" y="156" font-size="12" fill="#b9c2d6" text-anchor="middle">native bridge</text>
+
+  <!-- Local SOCKS / Xray -->
+  <rect x="240" y="230" width="320" height="90" rx="10" fill="#0f8a6b"/>
+  <text x="400" y="258" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="600">Local SOCKS proxy (127.0.0.1:10808)</text>
+  <text x="400" y="278" font-size="11.5" fill="#eafaf3" text-anchor="middle">Xray-core process — Shadowsocks / VMess /</text>
+  <text x="400" y="294" font-size="11.5" fill="#eafaf3" text-anchor="middle">VLESS / Trojan outbound</text>
+
+  <!-- VPN server -->
+  <rect x="670" y="150" width="150" height="70" rx="10" fill="#0f8a6b"/>
+  <text x="745" y="180" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="600">VPN server</text>
+  <text x="745" y="198" font-size="12" fill="#d8f3ea" text-anchor="middle">decrypts &amp; relays</text>
+
+  <!-- Internet -->
+  <rect x="850" y="150" width="110" height="70" rx="10" fill="#2f6fed"/>
+  <text x="905" y="190" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="600">Internet</text>
+
+  <!-- Arrows -->
+  <line x1="200" y1="145" x2="238" y2="145" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="390" y1="145" x2="428" y2="145" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="495" y1="180" x2="450" y2="228" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="560" y1="260" x2="668" y2="200" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="820" y1="185" x2="848" y2="185" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="500" y="270" font-size="0" opacity="0"> </text>
+
+  <!-- Caption -->
+  <text x="500" y="400" font-size="13" fill="#5b6472" text-anchor="middle">
+    Raw IP packets enter the TUN interface, are translated to SOCKS5 by tun2socks, proxied by the local
+  </text>
+  <text x="500" y="420" font-size="13" fill="#5b6472" text-anchor="middle">
+    Xray-core process using an encrypted outbound (e.g. Shadowsocks), and relayed to the real destination.
+  </text>
+</svg>

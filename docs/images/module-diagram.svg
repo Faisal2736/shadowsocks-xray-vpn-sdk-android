@@ -1,0 +1,41 @@
+<svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="arrow3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5b6472"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="420" fill="#ffffff"/>
+  <text x="450" y="36" font-size="17" font-weight="700" fill="#1f2a44" text-anchor="middle">Repository module layout</text>
+
+  <!-- demo-app -->
+  <rect x="60" y="80" width="260" height="150" rx="12" fill="#2f6fed"/>
+  <text x="190" y="110" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="700">demo-app</text>
+  <text x="190" y="130" font-size="11.5" fill="#dbe6ff" text-anchor="middle">com.android.application</text>
+  <text x="190" y="158" font-size="12" fill="#ffffff" text-anchor="middle">MainActivity</text>
+  <text x="190" y="178" font-size="12" fill="#ffffff" text-anchor="middle">VpnDemoViewModel</text>
+  <text x="190" y="198" font-size="12" fill="#ffffff" text-anchor="middle">ExampleServers (local config)</text>
+
+  <!-- vpn-sdk -->
+  <rect x="480" y="60" width="360" height="300" rx="12" fill="#0f8a6b"/>
+  <text x="660" y="92" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="700">vpn-sdk</text>
+  <text x="660" y="112" font-size="11.5" fill="#d8f3ea" text-anchor="middle">com.android.library</text>
+
+  <rect x="504" y="130" width="312" height="46" rx="8" fill="#0c6e56"/>
+  <text x="660" y="158" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="600">VpnConnectionManager · VpnConfig</text>
+
+  <rect x="504" y="184" width="312" height="46" rx="8" fill="#0c6e56"/>
+  <text x="660" y="212" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="600">VpnService (android.net.VpnService)</text>
+
+  <rect x="504" y="238" width="312" height="46" rx="8" fill="#0c6e56"/>
+  <text x="660" y="266" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="600">XrayCore · ShadowsocksCore · Tun2Socks</text>
+
+  <rect x="504" y="292" width="312" height="46" rx="8" fill="#0c6e56"/>
+  <text x="660" y="320" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="600">jniLibs: libxray.so · libtun2socks.so</text>
+
+  <!-- Arrow -->
+  <line x1="320" y1="160" x2="478" y2="160" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow3)"/>
+  <text x="399" y="145" font-size="11" fill="#5b6472" text-anchor="middle">implementation(project(":vpn-sdk"))</text>
+
+  <text x="450" y="395" font-size="13" fill="#5b6472" text-anchor="middle">demo-app depends on vpn-sdk; vpn-sdk has no dependency on demo-app or any backend.</text>
+</svg>

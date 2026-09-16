@@ -1,0 +1,67 @@
+<svg viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5b6472"/>
+    </marker>
+  </defs>
+
+  <rect width="1000" height="520" fill="#ffffff"/>
+
+  <text x="500" y="36" font-size="17" font-weight="700" fill="#1f2a44" text-anchor="middle">How a host app talks to the SDK</text>
+
+  <!-- Host app -->
+  <rect x="60" y="80" width="200" height="70" rx="10" fill="#2f6fed"/>
+  <text x="160" y="110" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="600">Host app</text>
+  <text x="160" y="130" font-size="12" fill="#dbe6ff" text-anchor="middle">Activity / ViewModel</text>
+
+  <!-- VpnConnectionManager -->
+  <rect x="400" y="80" width="240" height="70" rx="10" fill="#7a3ff2"/>
+  <text x="520" y="110" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="600">VpnConnectionManager</text>
+  <text x="520" y="130" font-size="12" fill="#e9def f" text-anchor="middle" fill-opacity="0.9">public SDK facade</text>
+
+  <!-- VpnService -->
+  <rect x="770" y="80" width="180" height="70" rx="10" fill="#1f2a44"/>
+  <text x="860" y="110" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="600">VpnService</text>
+  <text x="860" y="130" font-size="12" fill="#b9c2d6" text-anchor="middle">android.net.VpnService</text>
+
+  <!-- Arrows top row -->
+  <line x1="260" y1="100" x2="398" y2="100" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow2)"/>
+  <text x="330" y="92" font-size="11.5" fill="#5b6472" text-anchor="middle">connect(config)</text>
+
+  <line x1="640" y1="100" x2="768" y2="100" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow2)"/>
+  <text x="705" y="92" font-size="11.5" fill="#5b6472" text-anchor="middle">Intent</text>
+
+  <!-- Return path -->
+  <line x1="768" y1="135" x2="642" y2="135" stroke="#9aa3b2" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrow2)"/>
+  <text x="705" y="152" font-size="11.5" fill="#9aa3b2" text-anchor="middle">broadcast</text>
+
+  <line x1="398" y1="135" x2="262" y2="135" stroke="#9aa3b2" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrow2)"/>
+  <text x="330" y="152" font-size="11.5" fill="#9aa3b2" text-anchor="middle">connectionState: StateFlow</text>
+
+  <!-- VpnService internals -->
+  <rect x="700" y="230" width="260" height="200" rx="14" fill="#f4f6fa" stroke="#c7d0dd" stroke-width="1.5" stroke-dasharray="6,5"/>
+  <text x="830" y="255" font-size="13" font-weight="600" fill="#3b4454" text-anchor="middle">VpnService owns</text>
+
+  <rect x="720" y="270" width="220" height="50" rx="8" fill="#0f8a6b"/>
+  <text x="830" y="300" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="600">XrayCore (local SOCKS)</text>
+
+  <rect x="720" y="335" width="220" height="50" rx="8" fill="#0f8a6b"/>
+  <text x="830" y="365" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="600">Tun2Socks (TUN bridge)</text>
+
+  <line x1="860" y1="150" x2="860" y2="228" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow2)"/>
+
+  <!-- VpnConfig note -->
+  <rect x="400" y="230" width="240" height="110" rx="10" fill="#fff7e6" stroke="#e8c674" stroke-width="1.5"/>
+  <text x="520" y="255" font-size="13" font-weight="600" fill="#7a5a12" text-anchor="middle">VpnConfig</text>
+  <text x="520" y="276" font-size="11.5" fill="#7a5a12" text-anchor="middle">protocol, address, port,</text>
+  <text x="520" y="292" font-size="11.5" fill="#7a5a12" text-anchor="middle">method/password, uuid, tls…</text>
+  <text x="520" y="313" font-size="11" fill="#8a6a22" text-anchor="middle">— built by the host app, or via</text>
+  <text x="520" y="328" font-size="11" fill="#8a6a22" text-anchor="middle">ShadowsocksUri.parseToVpnConfig()</text>
+
+  <line x1="520" y1="150" x2="520" y2="228" stroke="#5b6472" stroke-width="2" marker-end="url(#arrow2)"/>
+  <text x="545" y="190" font-size="11" fill="#5b6472">supplies</text>
+
+  <!-- Bottom caption -->
+  <text x="500" y="470" font-size="13" fill="#5b6472" text-anchor="middle">The host app never touches BroadcastReceiver, intent actions, or the service lifecycle —</text>
+  <text x="500" y="490" font-size="13" fill="#5b6472" text-anchor="middle">it calls three methods on VpnConnectionManager and collects one StateFlow.</text>
+</svg>
